@@ -1,1 +1,1 @@
-# List ALL users here (ADMINS + AUTHORIZED USERS); Do NOT include PASSWORDS; List every USER in a NEW LINE
+# List ALL users here (ADMINS + AUTHORIZED USERS); Do NOT include PASSWORDS; List each USER on a SEPARATE LINE

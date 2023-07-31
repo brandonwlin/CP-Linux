@@ -1,5 +1,28 @@
 # CP-Ubu (WORK IN PROGRESS)
 NOTE: IGNORE ALL THE SYNTAX ERRORS; SCRIPT SHOULD STILL WORK
+
+## Tasks Covered by the Script:
+### script.sh
+1. Root User Check: The script verifies if it is being run with root privileges. If not, it exits with an error message.
+2. Restricting Home Directory Access: Home directory (homedir) access is restricted by setting specific permissions for users with user IDs greater than or equal to 1000.
+3. Configuring Uncomplicated Firewall (UFW): The script ensures that the UFW firewall is installed, and it configures rules for loopback traffic and outbound connections while disabling unnecessary network protocols.
+4. Configuring SSH: The script configures SSH by copying and updating SSH daemon configuration files and setting proper permissions for SSH keys.
+5. Installing Security Utilities: Various security-related utilities such as Cracklib, Rootkit Hunter (rkhunter), AuditD, SysStat, acct, DebSums, and apt-show-versions are installed.
+6. Adding Legal Banners: Warning banners are added to /etc/issue.net and /etc/issue files to display a warning message to unauthorized users.
+7. Disabling Unneeded Software and Services: The script removes specified unneeded software packages and disables unnecessary services listed in the provided files (software.txt and services.txt).
+8. Restricting Compiler Access: Access to the GNU Assembler (/usr/bin/x86_64-linux-gnu-as) is restricted to the root user.
+9. Setting File Permissions: Various system files and directories related to accounts, groups, PAM, crontab, CUPS, core dumps, and sysctl are given appropriate permissions.
+10. Purging Old Packages: Unused packages are removed from the system using apt-get autoremove.
+11. Updating Resolver Configuration: The resolver configuration file (/etc/host.conf) is updated.
+12. Securing Shared Memory: The /etc/fstab file is updated to secure shared memory.
+### auditusers.sh
+1. Root User Check: The script verifies if it is being run with root privileges. If not, it exits with an error message.
+2. Check for User Files: The script checks for the presence of "allusers.txt" and "admins.txt" files before proceeding with user management. If any of the files is missing, the script will exit with an error.
+3. Adding Specified Users: The script reads the "allusers.txt" file and creates user accounts for the specified users. Each user is added with a home directory.
+4. Removing Unauthorized Users: The script reads the system's "/etc/passwd" file and removes any unauthorized users who are not listed in the "allusers.txt" file. The '-r' option is used with 'userdel' to remove the user's home directory.
+5. Updating User Passwords: The script updates the passwords of all users listed in the "allusers.txt" file with a default password "P@$$w0rd1234". Additionally, the 'chage' command sets password-related aging policies for the users (minimum age: 7 days, maximum age: 90 days, and warning period: 14 days).
+6. Disabling Root Account: The script disables the root account using 'passwd -l root', effectively preventing direct root login.
+7. Configuring Admin Privileges: The script configures administrative privileges for users listed in the "admins.txt" file. Users in "admins.txt" are added to the "sudo" group using 'usermod -aG sudo $user', granting them administrative privileges. If a user is removed from "admins.txt", their admin privileges are revoked using 'gpasswd -d $user sudo'.
 ## Script1 Cklist
 1. READ image README
 2. Solve FORENSIC QUESTIONS

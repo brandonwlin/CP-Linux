@@ -7,3 +7,6 @@ rsync.service
 rsyslog.service
 telnet.service
 vsftpd.service
+### FROM UBUNTU LINUX CIS Benchmark ###
+avahi-daemon.service
+avahi-daemon.socket

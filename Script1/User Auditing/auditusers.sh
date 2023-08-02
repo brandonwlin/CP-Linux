@@ -45,7 +45,7 @@ echo -e "[ i ] Updating user passwords..."
 ME=$(whoami)
 while read line; do
   if [ "$line" != "$ME" ]; then  # Skip ME
-  echo $line'P@$$w0rd1234' | chpasswd &> /dev/null
+  echo $line'Pa\$\$w0rd1234' | chpasswd &> /dev/null
   chage -m 7 -M 90 -W 14 &> /dev/null
   fi
 done < allusers.txt

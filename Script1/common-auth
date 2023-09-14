@@ -25,4 +25,3 @@ auth	required			        pam_permit.so
 auth	optional			        pam_cap.so 
 # end of pam-auth-update config
 auth    required                    pam_tally2.so deny=5 onerr=fail audit even_deny_root_account unlock_time=1800
-# learn more at https://www.digitalocean.com/community/tutorials/how-to-use-pam-to-configure-authentication-on-an-ubuntu-12-04-vps

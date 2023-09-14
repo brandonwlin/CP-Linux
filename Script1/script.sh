@@ -93,18 +93,18 @@ service ssh restart &> /dev/null
 overwrite "${YES} SSH configured"
 
 echo -e "[ i ] Installing Cracklib..."
-apt-get -y install libpam-cracklib > /dev/null
+apt -y install libpam-cracklib > /dev/null
 overwrite "${YES} Installed Cracklib"
 
 echo -e "[ i ] Installing Rootkit Hunter..."
-DEBIAN_FRONTEND=noninteractive apt-get install -y postfix > /dev/null
+DEBIAN_FRONTEND=noninteractive apt install -y postfix > /dev/null
 systemctl stop postfix
 rm -f /etc/postfix/main.cf > /dev/null
-apt-get -y install rkhunter > /dev/null
+apt -y install rkhunter > /dev/null
 overwrite "${YES} Installed Rootkit Hunter"
 
 echo -e "[ i ] Installing AuditD..."
-apt-get -y install auditd > /dev/null
+apt -y install auditd > /dev/null
 overwrite "${YES} Installed AuditD"
 
 echo -e "[ i ] Adding AuditD rules..."
@@ -112,7 +112,7 @@ cp audit.rules /etc/audit/audit.rules > /dev/null
 overwrite "${YES} Added AuditD rules"
 
 echo -e "[ i ] Installing SysStat..."
-apt-get -y install sysstat > /dev/null
+apt -y install sysstat > /dev/null
 overwrite "${YES} Installed SysStat"
 
 echo -e "[ i ] Enabling SysStat..."
@@ -122,7 +122,7 @@ systemctl start sysstat > /dev/null
 overwrite "${YES} Enabled SysStat"
 
 echo -e "[ i ] Installing acct..."
-apt-get -y install acct > /dev/null
+apt -y install acct > /dev/null
 overwrite "${YES} Installed acct"
 
 echo -e "[ i ] Enabling acct..."
@@ -130,11 +130,11 @@ echo -e "[ i ] Enabling acct..."
 overwrite "${YES} Enabled acct"
 
 echo -e "[ i ] Installing DebSums..."
-apt-get -y install debsums > /dev/null
+apt -y install debsums > /dev/null
 overwrite "${YES} Installed DebSums"
 
 echo -e "[ i ] Installing apt-show-versions..."
-apt-get -y install apt-show-versions > /dev/null
+apt -y install apt-show-versions > /dev/null
 overwrite "${YES} Installed apt-show-versions"
 
 echo -e "[ i ] Adding legal banners..."
@@ -171,7 +171,7 @@ cp common-password /etc/pam.d/common-password
 overwrite "${YES} Updated PAM password file"
 
 echo -e "[ i ] Removing GNOME games..."
-apt-get -y purge gnome-games > /dev/null
+apt -y purge gnome-games > /dev/null
 overwrite "${YES} Removed GNOME games"
 
 echo -e "[ i ] Listing files in user directories..."
@@ -185,7 +185,7 @@ overwrite "${YES} Removed games from /usr/"
 
 echo -e "[ i ] Removing unneeded software..."
 while read line; do
-  apt-get -y purge $line &> /dev/null
+  apt -y purge $line &> /dev/null
 done < software.txt
 overwrite "${YES} Removed unneeded software"
 
@@ -248,7 +248,7 @@ sysctl -p > /dev/null
 overwrite "${YES} Updated sysctl.conf"
 
 echo -e "[ i ] Purging old packages..."
-apt-get -y autoremove > /dev/null
+apt -y autoremove > /dev/null
 overwrite "${YES} Purged old packages"
 
 echo -e "[ i ] Updating resolver configuration file..."
@@ -259,94 +259,3 @@ echo -e "[ i ] Securing shared memory..."
 cp fstab /etc/fstab
 mount -a
 overwrite "${YES} Secured shared memory"
-
-### FROM UBUNTU LINUX CIS Benchmark ###
-### NOTE: COMMENTED OUT - ADDED TO services.txt AND/OR software.txt ALREADY ###
-# echo -e "[ i ] Ensuring Avahi Server is not installed..."
-# systemctl stop avahi-daemon.service &> /dev/null
-# systemctl stop avahi-daemon.socket &> /dev/null
-# apt purge -y avahi-daemon &> /dev/null
-# overwrite "${YES} Ensured Avahi Server is not installed"
-
-# echo -e "[ i ] Ensuring CUPS is not installed..."
-# apt purge -y cups &> /dev/null
-# overwrite "${YES} Ensured CUPS is not installed"
-
-# echo -e "[ i ] Ensuring DHCP Server is not installed..."
-# apt purge -y isc-dhcp-server &> /dev/null
-# overwrite "${YES} Ensured DHCP Server is not installed"
-
-# echo -e "[ i ] Ensuring LDAP Server is not installed..."
-# apt purge -y slapd &> /dev/null
-# overwrite "${YES} Ensured LDAP Server is not installed"
-
-# echo -e "[ i ] Ensuring NFS is not installed..."
-# apt purge -y nfs-kernel-server &> /dev/null
-# overwrite "${YES} Ensured NFS is not installed"
-
-# echo -e "[ i ] Ensuring DNS Server is not installed..."
-# apt purge -y bind9 &> /dev/null
-# apt purge -y bind9-hosts &> /dev/null
-# apt purge -y bind9-utils &> /dev/null
-# overwrite "${YES} Ensured DNS Server is not installed"
-
-# echo -e "[ i ] Ensuring FTP Server is not installed..."
-# apt purge -y vsftpd &> /dev/null
-# overwrite "${YES} Ensured FTP Server is not installed"
-
-# echo -e "[ i ] Ensuring HTTP Server is not installed..."
-# apt purge -y apache2 &> /dev/null
-# overwrite "${YES} Ensured HTTP Server is not installed"
-
-# echo -e "[ i ] Ensuring IMAP and POP3 Server are not installed..."
-# apt purge -y dovecot-imapd &> /dev/null
-# apt purge -y dovecot-pop3d &> /dev/null
-# overwrite "${YES} Ensured IMAP and POP3 Server are not installed"
-
-# echo -e "[ i ] Ensuring Samba is not installed..."
-# apt purge -y samba &> /dev/null
-# apt purge -y samba-common &> /dev/null
-# apt purge -y samba-dev &> /dev/null
-# apt purge -y samba-server &> /dev/null
-# apt purge -y samba-vfs-modules &> /dev/null
-
-# overwrite "${YES} Ensured Samba is not installed"
-
-# echo -e "[ i ] Ensuring HTTP Proxy Server is not installed..."
-# apt purge -y squid &> /dev/null
-# overwrite "${YES} Ensured HTTP Proxy Server is not installed"
-
-# echo -e "[ i ] Ensuring SNMP Server is not installed..."
-# apt purge -y snmpd &> /dev/null
-# overwrite "${YES} Ensured SNMP Server is not installed"
-
-# echo -e "[ i ] Ensuring NIS Server/Client is not installed..."
-# apt purge -y nis &> /dev/null
-# overwrite "${YES} Ensured NIS Server is not installed"
-
-# echo -e "[ i ] Ensuring rsync service is not installed"
-# apt purge -y rsync &> /dev/null
-# overwrite "${YES} Ensured rsync service is not installed"
-
-# echo -e "[ i ] Ensuring rsh client is not installed..."
-# apt purge -y rsh-client &> /dev/null
-# apt purge -y rsh-redone-client &> /dev/null
-# overwrite "${YES} Ensured rsh client is not installed"
-
-# echo -e "[ i ] Ensuring talk client is not installed..."
-# apt purge -y talk &> /dev/null
-# apt purge -y ntalk &> /dev/null
-# overwrite "${YES} Ensured talk client is not installed"
-
-# echo -e "[ i ] Ensuring telnet client is not installed..."
-# apt purge -y telnet &> /dev/null
-# apt purge -y telnetd &> /dev/null
-# overwrite "${YES} Ensured telnet client is not installed"
-
-# echo -e "[ i ] Ensuring LDAP client is not installed..."
-# apt purge -y ldap-utils &> /dev/null
-# overwrite "${YES} Ensured LDAP client is not installed"
-
-# echo -e "[ i ] Ensuring RPC is not installed..."
-# apt purge -y rpcbind &> /dev/null
-# overwrite "${YES} Ensured RPC is not installed"

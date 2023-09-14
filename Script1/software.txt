@@ -15,6 +15,7 @@ nginx-naxsi
 nmap
 openssh-server
 openvas-server
+ophcrack
 php
 postfix
 pure-ftpd

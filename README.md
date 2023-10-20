@@ -29,5 +29,3 @@ NOTE: IGNORE ALL THE SYNTAX ERRORS; SCRIPT SHOULD STILL WORK
 
 ## Contributing to Script
 * Submit Issues and Pull requests
-## To-Do/Coming Soon
-* Debian script for CPXVI

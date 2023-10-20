@@ -15,28 +15,17 @@ NOTE: IGNORE ALL THE SYNTAX ERRORS; SCRIPT SHOULD STILL WORK
 10. Purging Old Packages: Unused packages are removed from the system using apt-get autoremove.
 11. Updating Resolver Configuration: The resolver configuration file (/etc/host.conf) is updated.
 12. Securing Shared Memory: The /etc/fstab file is updated to secure shared memory.
-### auditusers.sh
-1. Root User Check: The script verifies if it is being run with root privileges. If not, it exits with an error message.
-2. Check for User Files: The script checks for the presence of "allusers.txt" and "admins.txt" files before proceeding with user management. If any of the files is missing, the script will exit with an error.
-3. Adding Specified Users: The script reads the "allusers.txt" file and creates user accounts for the specified users. Each user is added with a home directory.
-4. Removing Unauthorized Users: The script reads the system's "/etc/passwd" file and removes any unauthorized users who are not listed in the "allusers.txt" file. The '-r' option is used with 'userdel' to remove the user's home directory.
-5. Updating User Passwords: The script updates the passwords of all users listed in the "allusers.txt" file with a default password "P@$$w0rd1234". Additionally, the 'chage' command sets password-related aging policies for the users (minimum age: 7 days, maximum age: 90 days, and warning period: 14 days).
-6. Disabling Root Account: The script disables the root account using 'passwd -l root', effectively preventing direct root login.
-7. Configuring Admin Privileges: The script configures administrative privileges for users listed in the "admins.txt" file. Users in "admins.txt" are added to the "sudo" group using 'usermod -aG sudo $user', granting them administrative privileges. If a user is removed from "admins.txt", their admin privileges are revoked using 'gpasswd -d $user sudo'.
+
 ## Script1 Cklist
 1. READ image README
 2. Solve FORENSIC QUESTIONS
-3. CLONE this repo (This is a PRIVATE repo, so you will need to LOGIN and DOWNLOAD the code)
-4. COMMENT OUT any necessary/CRITICAL SERVICES or programs in services.txt and software.txt
-5. Configure UPDATE SETTINGS (Use the Software & Updates GUI tool, or update /etc/apt/sources.list accordingly)
-6. Make script EXECUTABLE (chmod +x script.sh)
-7. RUN script (./script.sh)
-8. Open User Auditing Directory (Inside Script1)
-9. Lists ALL USERS (ADMINS + AUTHORIZED USERS) in allusers.txt
-10. List ALL ADMINS in admins.txt
-11. Make auditusers.sh EXECUTABLE (chmod +x auditusers.sh)
-12. RUN auditusers.sh (./auditusers.sh)
-13. Continue with any remaining items on the TEAM CKLIST ([Ubuntu/Linux Check-List-fromCadets](https://docs.google.com/document/d/1BBQ2hGnE1FpdCpkSSvZfeTynFjkIIREwgcZyv4Ld9eQ/edit))  
+3. Audit/Manage USERS and GROUPS
+4. CLONE this repo (This is a PRIVATE repo, so you will need to LOGIN and DOWNLOAD the code)
+5. COMMENT OUT any necessary/CRITICAL SERVICES or programs in services.txt and software.txt
+6. Configure UPDATE SETTINGS (Use the Software & Updates GUI tool, or update /etc/apt/sources.list accordingly)
+7. Make script EXECUTABLE (chmod +x script.sh)
+8. RUN script (./script.sh)
+9. Continue with any remaining items on the TEAM CKLIST ([Ubuntu/Linux Check-List-fromCadets](https://docs.google.com/document/d/1BBQ2hGnE1FpdCpkSSvZfeTynFjkIIREwgcZyv4Ld9eQ/edit))  
 
 ## Contributing to Script
 * Submit Issues and Pull requests

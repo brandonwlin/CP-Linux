@@ -148,8 +148,12 @@ TTYPERM		0600
 #
 ERASECHAR	0177
 KILLCHAR	025
-UMASK		027
+UMASK		022
 
+# HOME_MODE is used by useradd(8) and newusers(8) to set the mode for new
+# home directories.
+# If HOME_MODE is not set, the value of UMASK is used to create the mode.
+HOME_MODE	0750
 #
 # Password aging controls:
 #
@@ -291,8 +295,8 @@ ENCRYPT_METHOD SHA512
 # If only one of the MIN or MAX values is set, then this value will be used.
 # If MIN > MAX, the highest value will be used.
 #
-SHA_CRYPT_MIN_ROUNDS 5000
-SHA_CRYPT_MAX_ROUNDS 5000
+# SHA_CRYPT_MIN_ROUNDS 5000
+# SHA_CRYPT_MAX_ROUNDS 5000
 
 ################# OBSOLETED BY PAM ##############
 #						#

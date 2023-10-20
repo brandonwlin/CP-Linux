@@ -138,8 +138,8 @@ apt -y install apt-show-versions > /dev/null
 overwrite "${YES} Installed apt-show-versions"
 
 echo -e "[ i ] Adding legal banners..."
-echo "WARNING: UNAUTHORIZED ACCESS IS FORBIDDEN. PENAL LAWS WILL BE ENFORCED BY OWNER." > /etc/issue.net
-echo "WARNING: UNAUTHORIZED ACCESS IS FORBIDDEN. PENAL LAWS WILL BE ENFORCED BY OWNER." > /etc/issue
+echo "UNAUTHORIZED ACCESS TO THIS DEVICE IS PROHIBITED: You must have explicit, authorized permission to access or configure this device. Unauthorized attempts and actions to access or use this system may result in civil and/or criminal penalties. All activities performed on this device are logged and monitored." > /etc/issue.net
+echo "UNAUTHORIZED ACCESS TO THIS DEVICE IS PROHIBITED: You must have explicit, authorized permission to access or configure this device. Unauthorized attempts and actions to access or use this system may result in civil and/or criminal penalties. All activities performed on this device are logged and monitored." > /etc/issue
 overwrite "${YES} Added legal banners"
 
 echo -e "[ i ] Disabling DCCP protocol..."
@@ -255,7 +255,7 @@ echo -e "[ i ] Updating resolver configuration file..."
 cp host.conf /etc/host.conf
 overwrite "${YES} Updated resolver configuration file"
 
-echo -e "[ i ] Securing shared memory..."
-cp fstab /etc/fstab
-mount -a
-overwrite "${YES} Secured shared memory"
+#echo -e "[ i ] Securing shared memory..."
+#cp fstab /etc/fstab
+#mount -a
+#overwrite "${YES} Secured shared memory"

@@ -1,4 +1,5 @@
 # CP-Ubu (WORK IN PROGRESS)
+<<<<<<< HEAD
 
 ## Script1
 
@@ -31,3 +32,5 @@
 
 ## Contributing to Script
 * Submit Issues and Pull requests
+=======
+>>>>>>> c47ca1d3444293c248312713edfc487d3fef134c

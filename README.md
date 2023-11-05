@@ -1,8 +1,10 @@
 # CP-Ubu (WORK IN PROGRESS)
-NOTE: IGNORE ALL THE SYNTAX ERRORS; SCRIPT SHOULD STILL WORK
 
-## Tasks Covered by the Script:
-### script.sh
+## Script1
+
+
+### Tasks Covered by the Script1:
+#### script.sh
 1. Root User Check: The script verifies if it is being run with root privileges. If not, it exits with an error message.
 2. Restricting Home Directory Access: Home directory (homedir) access is restricted by setting specific permissions for users with user IDs greater than or equal to 1000.
 3. Configuring Uncomplicated Firewall (UFW): The script ensures that the UFW firewall is installed, and it configures rules for loopback traffic and outbound connections while disabling unnecessary network protocols.
@@ -16,7 +18,7 @@ NOTE: IGNORE ALL THE SYNTAX ERRORS; SCRIPT SHOULD STILL WORK
 11. Updating Resolver Configuration: The resolver configuration file (/etc/host.conf) is updated.
 12. Securing Shared Memory: The /etc/fstab file is updated to secure shared memory.
 
-## Script1 Cklist
+### Script1 Cklist
 1. READ image README
 2. Solve FORENSIC QUESTIONS
 3. Audit/Manage USERS and GROUPS

@@ -53,7 +53,7 @@ overwrite "${YES} UFW rules configured"
 
 echo -e "[ i ] Configuring SSH..."
 cp sshd_config /etc/ssh/sshd_config > /dev/null
-cp sshd /etc/pam.d/sshd > /dev/null
+# cp sshd /etc/pam.d/sshd > /dev/null
 # Ensure correct permissions and owner on private keys
 # Check if SSH keys present
 if [[ -f "/etc/ssh/ssh_host_rsa_key" ]]; then
@@ -129,17 +129,13 @@ echo -e "[ i ] Enabling acct..."
 /etc/init.d/acct start > /dev/null
 overwrite "${YES} Enabled acct"
 
-echo -e "[ i ] Installing DebSums..."
-apt -y install debsums > /dev/null
-overwrite "${YES} Installed DebSums"
-
 echo -e "[ i ] Installing apt-show-versions..."
 apt -y install apt-show-versions > /dev/null
 overwrite "${YES} Installed apt-show-versions"
 
 echo -e "[ i ] Adding legal banners..."
-echo "UNAUTHORIZED ACCESS TO THIS DEVICE IS PROHIBITED: You must have explicit, authorized permission to access or configure this device. Unauthorized attempts and actions to access or use this system may result in civil and/or criminal penalties. All activities performed on this device are logged and monitored." > /etc/issue.net
-echo "UNAUTHORIZED ACCESS TO THIS DEVICE IS PROHIBITED: You must have explicit, authorized permission to access or configure this device. Unauthorized attempts and actions to access or use this system may result in civil and/or criminal penalties. All activities performed on this device are logged and monitored." > /etc/issue
+echo "Authorized Access Only!" > /etc/issue.net
+echo "Authorized Access Only!" > /etc/issue
 overwrite "${YES} Added legal banners"
 
 echo -e "[ i ] Disabling DCCP protocol..."
@@ -254,8 +250,3 @@ overwrite "${YES} Purged old packages"
 echo -e "[ i ] Updating resolver configuration file..."
 cp host.conf /etc/host.conf
 overwrite "${YES} Updated resolver configuration file"
-
-#echo -e "[ i ] Securing shared memory..."
-#cp fstab /etc/fstab
-#mount -a
-#overwrite "${YES} Secured shared memory"

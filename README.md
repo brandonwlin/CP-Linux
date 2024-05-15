@@ -1,6 +1,8 @@
-# [CP-Ubu](https://github.com/brandonwlin/CP-Ubu/tree/main) [README](https://github.com/brandonwlin/CP-Ubu/blob/main/README.md)
-## [Script1](https://github.com/brandonwlin/CP-Ubu/tree/main/Script1)
+# [CP-Linux](https://github.com/brandonwlin/CP-Win) README
+## For Debian/Ubuntu and Derivatives (Mint, Kali, etc.)
+### Script1
 * Hardening
-
-## [Script2](https://github.com/brandonwlin/CP-Ubu/tree/main/Script2)
+### Script2
 * Auditing/Gathering Info
+## For Fedora/RHEL and Derivatives (Alma, Rocky, CentOS, etc.)
+### Coming Soon!!!

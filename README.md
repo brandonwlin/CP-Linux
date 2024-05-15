@@ -1,5 +1,4 @@
-# CP-Ubu (WORK IN PROGRESS)
-
+# [CP-Ubu](https://github.com/brandonwlin/CP-Ubu/tree/main) [README](https://github.com/brandonwlin/CP-Ubu/blob/main/README.md)
 ## [Script1](https://github.com/brandonwlin/CP-Ubu/tree/main/Script1)
 * Hardening
 

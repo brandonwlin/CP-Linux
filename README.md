@@ -1,4 +1,4 @@
-# [CP-Linux](https://github.com/brandonwlin/CP-Win) README
+# [CP-Linux](https://github.com/brandonwlin/CP-Linux) README
 ## For Debian/Ubuntu and Derivatives (Mint, Kali, etc.)
 ### Script1
 * Hardening
